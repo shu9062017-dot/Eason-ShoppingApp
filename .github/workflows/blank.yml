@@ -8,22 +8,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 下載程式碼
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 設定 Java
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: 建立 APK
-  run: |
-    cd App
-    chmod +x gradlew
-    ./gradlew assembleDebug
+      - name: Build APK
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
 
-      - name: 上傳 APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Eason-ShoppingApp-APK

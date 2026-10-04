@@ -17,8 +17,9 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Build APK
+            - name: Build APK
         run: |
+          cd App
           chmod +x gradlew
           ./gradlew assembleDebug
 
